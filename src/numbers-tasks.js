@@ -51,9 +51,9 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
-  // throw new Error('Not implemented');
+function getAverage(/* value1, value2 */) {
+  // return (value1 + value2) / 2;
+  throw new Error('Not implemented');
 }
 
 /**
@@ -202,6 +202,14 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(/* n */) {
+  // if (n < 2) return false;
+  // const limit = Math.sqrt(n);
+  // for (let i = 2; i <= limit; i + 1) {
+  //   if (n % i === 0) {
+  //     return false;
+  //   }
+  // }
+  // return true;
   throw new Error('Not implemented');
 }
 
@@ -221,6 +229,13 @@ function isPrime(/* n */) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(/* value, def */) {
+  // let result;
+  // if (Number(value).isNaN()) {
+  //   result = def;
+  // } else {
+  //   result = Number(value);
+  // }
+  // return result;
   throw new Error('Not implemented');
 }
 
@@ -267,8 +282,14 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let result = 0;
+
+  for (let i = 1; i <= n; i += 1) {
+    result += i;
+  }
+
+  return result;
 }
 
 /**
@@ -282,8 +303,19 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  let result = 0;
+
+  if (num.toString().length === 1) {
+    result = num;
+  } else {
+    const arr = num.toString().split('');
+
+    for (let i = 0; i < arr.length; i += 1) {
+      result += +arr[i];
+    }
+  }
+  return result;
 }
 
 /**
@@ -297,8 +329,11 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  if (num % 2 === 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -326,8 +361,8 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -355,8 +390,8 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  return number.toFixed(fractionDigits);
 }
 
 /**
@@ -406,6 +441,10 @@ function getNumberValue(/* number */) {
  */
 function isNumber(/* number */) {
   throw new Error('Not implemented');
+  // if (number === Infinity || number.isNaN === true) {
+  //   return false;
+  // }
+  // return typeof number === 'number';
 }
 
 /**
@@ -540,8 +579,9 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  // throw new Error('Not implemented');
+  return x1 + x2 + x3;
 }
 
 /**
@@ -556,8 +596,9 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  // throw new Error('Not implemented');
+  return firstNumber > secondNumber ? firstNumber : secondNumber;
 }
 
 /**
