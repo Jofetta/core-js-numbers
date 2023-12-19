@@ -330,10 +330,14 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  if (num % 2 === 0) {
-    return true;
+  if (num < 2) {
+    return false;
   }
-  return false;
+  let n = num;
+  while (n >= 2) {
+    n /= 2;
+  }
+  return n === 1;
 }
 
 /**
@@ -439,12 +443,13 @@ function getNumberValue(/* number */) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
-  // if (number === Infinity || number.isNaN === true) {
+function isNumber(number) {
+  // throw new Error('Not implemented');
+  // if (number === Infinity || Number.isNaN(number) === true) {
   //   return false;
   // }
   // return typeof number === 'number';
+  return Number.isFinite(number);
 }
 
 /**
@@ -581,7 +586,7 @@ function getIntegerPartNumber(/* number */) {
  */
 function getSumOfNumbers(x1, x2, x3) {
   // throw new Error('Not implemented');
-  return x1 + x2 + x3;
+  return Math.floor((x1 + x2 + x3) * 1000) / 1000;
 }
 
 /**
@@ -598,7 +603,7 @@ function getSumOfNumbers(x1, x2, x3) {
  */
 function getMaxNumber(firstNumber, secondNumber) {
   // throw new Error('Not implemented');
-  return firstNumber > secondNumber ? firstNumber : secondNumber;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
