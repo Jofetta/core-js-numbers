@@ -51,9 +51,12 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  // return (value1 + value2) / 2;
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  if ((value1 + value2) / 2 > Number.MAX_VALUE) {
+    return Number.MAX_VALUE;
+  }
+  return (value1 + value2) / 2;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -71,8 +74,11 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  // d=√((x2 – x1)² + (y2 – y1)²)
+  const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  return distance;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -250,8 +256,9 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  // throw new Error('Not implemented');
+  return num ** 3;
 }
 
 /**
