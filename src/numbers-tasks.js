@@ -213,16 +213,20 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  // if (n < 2) return false;
-  // const limit = Math.sqrt(n);
-  // for (let i = 2; i <= limit; i + 1) {
-  //   if (n % i === 0) {
-  //     return false;
-  //   }
-  // }
-  // return true;
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n === 2 || n === 3) {
+    return true;
+  }
+  if (n <= 1 || n % 2 === 0 || n % 3 === 0) {
+    return false;
+  }
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) {
+      return false;
+    }
+  }
+  return true;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -240,15 +244,15 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  // let result;
-  // if (Number(value).isNaN()) {
-  //   result = def;
-  // } else {
-  //   result = Number(value);
-  // }
-  // return result;
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  let result;
+  if (Number.isNaN(Number(value))) {
+    result = def;
+  } else {
+    result = Number(value);
+  }
+  return result;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -280,8 +284,16 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  const fibonacciSequence = [0, 1];
+  if (index > 1) {
+    for (let i = 2; i <= index; i += 1) {
+      const nextNumber = fibonacciSequence[i - 2] + fibonacciSequence[i - 1];
+      fibonacciSequence.push(nextNumber);
+    }
+  }
+  return fibonacciSequence[index];
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -363,8 +375,9 @@ function isPowerOfTwo(num) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  // throw new Error('Not implemented');
+  return Math.sin(num);
 }
 
 /**
@@ -424,8 +437,9 @@ function toFixed(number, fractionDigits) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  // throw new Error('Not implemented');
+  return number.toPrecision(precision);
 }
 
 /**
@@ -438,8 +452,9 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  // throw new Error('Not implemented');
+  return number.valueOf();
 }
 
 /**
@@ -477,8 +492,9 @@ function isNumber(number) {
  * 5.1  => false
  * '5'  => false
  */
-function isInteger(/* number */) {
-  throw new Error('Not implemented');
+function isInteger(number) {
+  // throw new Error('Not implemented');
+  return Number.isInteger(number);
 }
 
 /**
@@ -491,8 +507,9 @@ function isInteger(/* number */) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  // throw new Error('Not implemented');
+  return Number.parseFloat(str);
 }
 
 /**
@@ -509,8 +526,8 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -524,8 +541,9 @@ function getIntegerOnString(/* str, base */) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  // throw new Error('Not implemented');
+  return Number.isSafeInteger(number);
 }
 
 /**
@@ -538,8 +556,9 @@ function isSafeInteger(/* number */) {
  * 5.9  => 5
  * -5.1 => -6
  */
-function roundToSmallestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToSmallestInteger(number) {
+  // throw new Error('Not implemented');
+  return Math.floor(number);
 }
 
 /**
@@ -552,8 +571,9 @@ function roundToSmallestInteger(/* number */) {
  * 5.1  => 6
  * -5.9 => -5
  */
-function roundToLargestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToLargestInteger(number) {
+  // throw new Error('Not implemented');
+  return Math.ceil(number);
 }
 
 /**
@@ -567,8 +587,9 @@ function roundToLargestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToNearestInteger(number) {
+  // throw new Error('Not implemented');
+  return Math.round(number);
 }
 
 /**
@@ -582,8 +603,9 @@ function roundToNearestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  // throw new Error('Not implemented');
+  return Math.trunc(number);
 }
 
 /**
@@ -632,8 +654,9 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  // throw new Error('Not implemented');
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 /**
@@ -646,8 +669,9 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  // throw new Error('Not implemented');
+  return Math.hypot(a, b);
 }
 
 /**
@@ -663,8 +687,12 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  // throw new Error('Not implemented');
+  if (number % 2 === 0) {
+    return Math.abs(number) / 2;
+  }
+  return Math.ceil(Math.abs(number) / 2);
 }
 
 module.exports = {
